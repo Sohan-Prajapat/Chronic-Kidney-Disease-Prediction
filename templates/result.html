@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>CKD Prediction Result</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", sans-serif;
+        background: #f8fafc;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 100vh;
+      }
+
+      .container {
+        background: white;
+        padding: 40px;
+        max-width: 800px;
+        width: 90%;
+        border-radius: 12px;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+      }
+
+      h2 {
+        text-align: center;
+        font-size: 28px;
+        margin-bottom: 20px;
+        color: #0f172a;
+      }
+
+      .result {
+        font-size: 22px;
+        font-weight: bold;
+        padding: 15px;
+        text-align: center;
+        border-radius: 8px;
+        margin-bottom: 25px;
+      }
+
+      .positive {
+        background-color: #fee2e2;
+        color: #b91c1c;
+        border: 1px solid #fca5a5;
+      }
+
+      .negative {
+        background-color: #dcfce7;
+        color: #065f46;
+        border: 1px solid #6ee7b7;
+      }
+
+      .section {
+        margin-top: 25px;
+      }
+
+      .section h3 {
+        color: #1e293b;
+        font-size: 20px;
+        margin-bottom: 10px;
+      }
+
+      .section ul {
+        padding-left: 20px;
+        line-height: 1.8;
+        color: #334155;
+      }
+
+      .back-btn {
+        display: block;
+        text-align: center;
+        margin-top: 30px;
+      }
+
+      .back-btn a {
+        background-color: #1e293b;
+        color: white;
+        padding: 12px 25px;
+        text-decoration: none;
+        border-radius: 8px;
+      }
+
+      .back-btn a:hover {
+        background-color: #0f172a;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h2>🔬 Prediction Result</h2>
+      <div
+        class="result {% if prediction == 'CKD Detected' %}positive{% else %}negative{% endif %}"
+      >
+        {{ prediction }}
+      </div>
+
+      {% if prediction == 'CKD Detected' %}
+      <div class="section">
+        <h3>⚠️ Precautions & Lifestyle Changes:</h3>
+        <ul>
+          <li>Salt intake kam karein — high BP kidney ko affect karta hai.</li>
+          <li>Daily water kaafi piyen — lekin doctor ke advice ke hisab se.</li>
+          <li>Regularly blood tests & urine tests karwate rahen.</li>
+          <li>Processed food aur soda avoid karein.</li>
+          <li>Smoking, alcohol se door rahen.</li>
+          <li>Diabetes ya BP hai to regular medication lein.</li>
+          <li>Kidney specialist (nephrologist) se consult karein.</li>
+        </ul>
+      </div>
+      {% else %}
+      <div class="section">
+        <h3>✅ Great News!</h3>
+        <ul>
+          <li>Aapki kidney health abhi theek lag rahi hai.</li>
+          <li>Fir bhi healthy rehne ke liye kuch steps follow karein:</li>
+          <li>Har din kam se kam 2-2.5 litre paani piyen.</li>
+          <li>Salt aur sugar ka use control mein rakhein.</li>
+          <li>Exercise ko routine ka hissa banayein.</li>
+          <li>
+            Regular health checkups zaroori hain — prevent better than cure!
+          </li>
+        </ul>
+      </div>
+      {% endif %}
+
+      <div class="back-btn">
+        <a href="/">🔁 Predict Again</a>
+      </div>
+    </div>
+  </body>
+</html>
