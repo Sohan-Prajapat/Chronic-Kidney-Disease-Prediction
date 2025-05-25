@@ -1,7 +1,11 @@
-Flask
+Flask==2.3.2
+joblib
 scikit-learn
+xgboost
 pandas
 numpy
 gunicorn
 matplotlib
 seaborn
+
+
